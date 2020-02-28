@@ -1,4 +1,6 @@
 #!/bin/bash
+# Copyright OneFirewall Alliance LTD
+# Author Sotiraki Sima
 
 sudo apt-get remove docker docker-engine docker.io containerd runc
 
@@ -24,3 +26,4 @@ sudo apt-get install -y docker-ce=5:18.09.0~3-0~ubuntu-bionic docker-ce-cli=5:18
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
+docker-compose up -d
