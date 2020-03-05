@@ -1,0 +1,4 @@
+docker run -d --name nginx -v $PWD/nginx.conf:/etc/nginx/nginx.conf nginx
+docker run -d --name nginx -v $PWD/nginx.conf:/etc/nginx/nginx.conf -v $PWD/ssl:/opt/ssl nginx
+docker run -d --name nginx -p8443:443 -v $PWD/nginx.conf:/etc/nginx/conf.d/nginx-test.conf -v $PWD/ssl:/opt/ssl nginx
+docker run -d --name nginx --dns 8.8.8.8 -p8443:443 -v $PWD/nginx.conf:/etc/nginx/conf.d/nginx-test.conf -v $PWD/ssl:/opt/ssl -v $PWD/htpasswd:/etc/nginx/.htpasswd nginx
