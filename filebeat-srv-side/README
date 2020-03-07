@@ -1,0 +1,1 @@
+docker run -d --name=filebeat --volume="$(pwd)/haproxy.log:/var/log/haproxy.log:ro" --volume="$(pwd)/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro" --volume="$(pwd)/ssl:/opt/ssl" --add-host elktest.com:IP docker.elastic.co/beats/filebeat:7.6.0 filebeat
