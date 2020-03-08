@@ -1,0 +1,21 @@
+filebeat.modules:
+- module: haproxy
+  log:
+    enabled: true
+    var.paths: ["/var/log/haproxy.log"]
+    var.input: "file"
+    #json.keys_under_root: true
+
+#processors:
+#  - decode_json_fields:
+#      fields: ["timestamp"]
+
+
+#output.file:
+#  path: "/tmp/filebeat"
+#  filename: filebeat
+
+output.elasticsearch.hosts: ["https://elk.dev.onefirewall.com:8443"]
+output.elasticsearch.ssl.certificate_authorities: ["/opt/ssl/cert-elk.pem"]
+#output.elasticsearch.ssl.certificate: "/opt/ssl/cert-elk.pem"
+
