@@ -4,6 +4,8 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.6.0
     environment:
       - discovery.type=single-node
+    volumes:
+      - /opt/elasticsearch/data:/usr/share/elasticsearch/data
 #    ports:
 #      - 9200:9200
   kibana:
@@ -19,3 +21,8 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx-test.conf
       - ./nginx/ssl:/opt/ssl
       - ./nginx/htpasswd:/etc/nginx/.htpasswd
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
