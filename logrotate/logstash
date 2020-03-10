@@ -1,0 +1,12 @@
+/var/log/logstash/*.log {
+        daily
+        missingok
+        rotate 7
+        compress
+        delaycompress
+        notifempty
+        sharedscripts
+        postrotate
+            /sbin/service logstash restart > /dev/null
+       endscript
+}
